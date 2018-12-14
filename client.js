@@ -10,7 +10,7 @@ class Employee{
 }
 
 function readyNow(){
-    
+    appendDom();
     // append
     // Add an input field that allows users to add new pets from the index page.
     // 3 input fields with id
@@ -22,12 +22,25 @@ function readyNow(){
     
     
     $('#aSalary').after('<button id="addEmployee"> Add Employee </button>');
-    $('#addEmployee').on('click', function () {
+    $('#addEmployee').on('click', function newEmp() {
         let firstN = $('#firstName').val();
         let lastN = $('#lastName').val()
         let employeeId = $('#empId').val()
-        let
-        pets.push(new Pet(title, breed, year))
-        $('table').append('<tr><td>' + title + '</td><td>' + breed + '</td><td>' + year + '</td></tr>')
+        let employeeTitle = $('#empTitle').val()
+        let annualSalary = $('#aSalary').val()
+        new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary)
+        $('table').append('<tr><td>' + firstN + '</td><td>' + lastN + '</td><td>' + employeeId + '</td><td>' + employeeTitle + '</td><td>' + annualSalary + '</td></tr>')
     });
+}
+function appendDom() {
+    let $header = $('<h1>Challenge 170</h1>');
+    $('.container').append($header);
+
+    let $table = $('<table></table>');
+    $table.append('<thead><tr><th>Name</th><th>Type</th><th>Age</th></thead>');
+
+    let $tbody = $('<tbody id="tableBody"></tbody>');
+    $table.append($tbody);
+
+    $('.container').append($table)
 }
