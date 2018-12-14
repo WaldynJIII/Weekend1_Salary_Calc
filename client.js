@@ -8,7 +8,7 @@ class Employee{
     this.asalary = aSalaryIn
 }
 }
-
+const employees = []
 function readyNow(){
     appendDom();
     // append
@@ -28,13 +28,16 @@ function readyNow(){
         let employeeId = $('#empId').val()
         let employeeTitle = $('#empTitle').val()
         let annualSalary = $('#aSalary').val()
-        new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary)
+        employees.push(new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary))
         $('table').append('<tr><td>' + firstN + '</td><td>' + lastN + '</td><td>' + employeeId + '</td><td>' + employeeTitle + '</td><td>' + annualSalary + '</td></tr>')
     });
+
 }
 function appendDom() {
+   
     let $header = $('<h1>Challenge 170</h1>');
     $('.container').append($header);
+ // what would happen if I removed this ^? //
 
     let $table = $('<table></table>');
     $table.append('<thead><tr><th>Name</th><th>Type</th><th>Age</th></thead>');
@@ -43,4 +46,10 @@ function appendDom() {
     $table.append($tbody);
 
     $('.container').append($table)
+}
+function aCalc(){
+    for (i = 0; i < employees.length; i++){
+let finalSalary = 0
+finalSalary += employees[i].asalary
+    }
 }
