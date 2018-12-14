@@ -11,7 +11,7 @@ class Employee{
 const employees = []
 let finalSalary = 0
 function readyNow(){
-    appendDom()
+   
    
     $('h1').after('<input type="text" id="firstName" placeholder="First Name">');
     $('#firstName').after('<input type="text" id="lastName" placeholder="Last Name">');
@@ -28,23 +28,13 @@ function readyNow(){
         let employeeTitle = $('#empTitle').val()
         let annualSalary = $('#aSalary').val()
         employees.push(new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary));
-        $('table').append('<tr><td>' + firstN + '</td><td>' + lastN + '</td><td>' + employeeId + '</td><td>' + employeeTitle + '</td><td>' + annualSalary + '</td></tr>')
+        $('ul').append('<li>'+ firstN + lastN + employeeId + employeeTitle + annualSalary + '</li>')
        
     });
 
 }
-function appendDom() {
-    let $header = $('<h1>Challenge 170</h1>');
-    $('.container').append($header);
 
-    let $table = $('<table></table>');
-    $table.append('<thead><tr><th>Name</th><th>Type</th><th>Age</th></thead>');
 
-    let $tbody = $('<tbody id="tableBody"></tbody>');
-    $table.append($tbody);
-
-    $('.container').append($table);
-}
 function aCalc(){
     for (i = 0; i < employees.length; i++){
 let monthlySalary = employees[i].asalary / 12
