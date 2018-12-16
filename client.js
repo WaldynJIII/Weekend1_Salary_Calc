@@ -10,8 +10,20 @@ class Employee {
 }
 const employees = []
 let finalSalary = 0
-function readyNow() {
 
+function removePar() {
+    $('li').remove();
+    console.log('delete')
+}
+
+function readyNow() {
+    $('.deleteEmp').on('click', function removePar(){
+        $(this).siblings().remove();
+    console.log('delete')
+}
+    );
+    
+    
 
     $('h1').after('<input type="text" id="firstName" placeholder="First Name">');
     $('#firstName').after('<input type="text" id="lastName" placeholder="Last Name">');
@@ -28,11 +40,18 @@ function readyNow() {
         let employeeTitle = $('#empTitle').val()
         let annualSalary = $('#aSalary').val()
         employees.push(new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary));
-        $('ul').append('<li>' + firstN + " " + lastN + " " + employeeId + " " + employeeTitle + " " + annualSalary + '</li>')
-        aCalc()
+        $('ul').append('<li>' + firstN + " " + lastN + " " + employeeId + " " + employeeTitle + " " + annualSalary + '</li>' + '<button class="deleteEmp"> Delete </button>')
+        $('.deleteEmp').on('click', function removePar() {
+            $(this).siblings().remove();
+            $(this).remove()
+            let lessSal = 
+            console.log('delete')
+        }
+        );
+        aCalc();
         yeetSalary();
     });
-
+    
 }
 
 
@@ -45,6 +64,9 @@ function aCalc() {
     $('h2').remove()
     $('ul').after('<h2 id="yeetedS">' + finalSalary + '</h2>')
 }
+
+
+
 
 function yeetSalary() {
     if (finalSalary > 20000) {
