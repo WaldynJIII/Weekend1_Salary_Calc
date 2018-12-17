@@ -40,12 +40,12 @@ function readyNow() {
         let employeeTitle = $('#empTitle').val()
         let annualSalary = $('#aSalary').val()
         employees.push(new Employee(firstN, lastN, employeeId, employeeTitle, annualSalary));
-        $('ul').append('<li>' + firstN + " " + lastN + " " + employeeId + " " + employeeTitle + " " + annualSalary + '</li>' + '<button class="deleteEmp"> Delete </button>')
+        $('ul').append('<li>' + firstN + " " + lastN + " " + employeeId + " " + employeeTitle + " " + annualSalary + '<button class="deleteEmp"> Delete </button></li>')
         $('.deleteEmp').on('click', function removePar() {
-            $(this).siblings().remove();
+            $(this).parent().remove();
             $(this).remove()
-            let lessSal = 
-            console.log('delete')
+            let lessSal = $(this).siblings().text(annualSalary).val()
+            console.log(lessSal)
         }
         );
         aCalc();
